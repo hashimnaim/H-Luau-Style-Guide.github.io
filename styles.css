@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #10151d;
+    color: #f3f4f6;
+}
+
+header {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.9;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.card {
+    background: #1a2230;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+pre {
+    overflow-x: auto;
+    padding: 15px;
+    border-radius: 8px;
+    background: #0d1117;
+}
+
+code {
+    font-family: Consolas, monospace;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+}
+
+th,
+td {
+    border: 1px solid #334155;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #1e293b;
+}
+
+blockquote {
+    border-left: 4px solid #64748b;
+    padding-left: 20px;
+    opacity: 0.9;
+}
+
+.note {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #334155;
+}
