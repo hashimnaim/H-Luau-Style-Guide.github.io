@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H Luau Style Guide</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>H Luau Style Guide</h1>
+
+        <p>
+            A strict Roblox Luau coding standard focused on consistency,
+            readability, type safety, and maintainability.
+        </p>
+
+        <a class="button" href="#principles">Read the Guide</a>
+    </header>
+
+    <main>
+        <section id="principles">
+            <h2>Core Principles</h2>
+
+            <div class="card">
+                <h3>Strict Typing</h3>
+
+                <p>
+                    All scripts should begin with:
+                </p>
+
+<pre><code>--!strict</code></pre>
+
+                <p>
+                    Type annotations are encouraged everywhere possible.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Semicolons</h3>
+
+                <p>
+                    Every statement should end with a semicolon.
+                </p>
+
+<pre><code>print("Hello");
+workspace.Gravity = 196.2;</code></pre>
+            </div>
+
+            <div class="card">
+                <h3>Functional Programming First</h3>
+
+                <p>
+                    Prefer pure functions and composition whenever practical.
+                    Avoid unnecessary mutable state.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Naming Conventions</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Convention</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Services</td>
+                        <td>PascalCase</td>
+                        <td>InventoryService</td>
+                    </tr>
+
+                    <tr>
+                        <td>Variables</td>
+                        <td>camelCase</td>
+                        <td>playerData</td>
+                    </tr>
+
+                    <tr>
+                        <td>Private Functions</td>
+                        <td>camelCase</td>
+                        <td>calculateDamage()</td>
+                    </tr>
+
+                    <tr>
+                        <td>Public Functions</td>
+                        <td>PascalCase</td>
+                        <td>DealDamage()</td>
+                    </tr>
+
+                    <tr>
+                        <td>Classes (OOP)</td>
+                        <td>PascalCase</td>
+                        <td>PlayerProfile</td>
+                    </tr>
+
+                    <tr>
+                        <td>Data Tables</td>
+                        <td>snake_case</td>
+                        <td>player_inventory</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Variable Declaration</h2>
+
+            <div class="card">
+                <h3>Use <code>const</code></h3>
+
+                <p>
+                    H Luau Style prefers the newer
+                    <code>const</code> keyword for values that should not be
+                    reassigned.
+                </p>
+
+<pre><code>const Players = game:GetService("Players");
+const ReplicatedStorage = game:GetService("ReplicatedStorage");</code></pre>
+
+                <p class="note">
+                    Note: Some Luau environments and tooling may still commonly
+                    use <code>local</code>. Teams adopting this guide should
+                    ensure their tooling supports the chosen conventions.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Example Service</h2>
+
+<pre><code>--!strict
+
+const CoinService = {};
+CoinService.__index = CoinService;
+
+type PlayerData = {
+    coins: number;
+};
+
+const player_data: {[Player]: PlayerData} = {};
+
+function calculateReward(player: Player): number
+    return 10;
+end;
+
+function CoinService.GiveCoins(
+    player: Player,
+    amount: number
+): ()
+    const data = player_data[player];
+
+    if not data then
+        return;
+    end;
+
+    data.coins += amount;
+end;
+
+function CoinService.GetCoins(
+    player: Player
+): number
+    const data = player_data[player];
+
+    if not data then
+        return 0;
+    end;
+
+    return data.coins;
+end;
+
+return CoinService;</code></pre>
+        </section>
+
+        <section>
+            <h2>Philosophy</h2>
+
+            <blockquote>
+                "Consistency beats preference. A shared style allows teams to
+                move faster, review code easier, and reduce unnecessary debates."
+            </blockquote>
+
+            <p>
+                H Luau Style prioritizes:
+            </p>
+
+            <ul>
+                <li>Predictable naming.</li>
+                <li>Strict typing.</li>
+                <li>Functional thinking.</li>
+                <li>Readable APIs.</li>
+                <li>Maintainable Roblox projects.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            H Luau Style Guide • Community Convention
+        </p>
+    </footer>
+</body>
+</html>
