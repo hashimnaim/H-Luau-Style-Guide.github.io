@@ -6,137 +6,158 @@
     <title>H Luau Style Guide</title>
 
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Prism Syntax Highlighting -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.min.css"
+        rel="stylesheet"
+    >
 </head>
+
 <body>
-    <header>
-        <h1>H Luau Style Guide</h1>
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge">Opinionated Roblox Luau Style Guide</span>
 
-        <p>
-            A strict Roblox Luau coding standard focused on consistency,
-            readability, type safety, and maintainability.
-        </p>
+            <h1>H Luau Style</h1>
 
-        <a class="button" href="#principles">Read the Guide</a>
+            <p>
+                A modern Luau style guide focused on consistency,
+                strict typing, functional thinking, and maintainable
+                Roblox codebases.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#principles" class="primary-button">
+                    Get Started
+                </a>
+
+                <a
+                    href="https://github.com/YOUR_USERNAME/hluau-style-guide"
+                    class="secondary-button"
+                >
+                    View on GitHub
+                </a>
+            </div>
+
+            <div class="feature-badges">
+                <span>--!strict</span>
+                <span>const</span>
+                <span>Functional</span>
+                <span>Type Safe</span>
+                <span>Semicolons</span>
+            </div>
+        </div>
     </header>
 
     <main>
+
         <section id="principles">
             <h2>Core Principles</h2>
 
-            <div class="card">
-                <h3>Strict Typing</h3>
+            <div class="card-grid">
 
-                <p>
-                    All scripts should begin with:
-                </p>
+                <div class="card">
+                    <h3>🔒 Strict Typing</h3>
 
-<pre><code>--!strict</code></pre>
+                    <p>
+                        Every script should use strict mode.
+                    </p>
 
-                <p>
-                    Type annotations are encouraged everywhere possible.
-                </p>
-            </div>
+<pre><code class="language-lua">--!strict</code></pre>
 
-            <div class="card">
-                <h3>Semicolons</h3>
+                </div>
 
-                <p>
-                    Every statement should end with a semicolon.
-                </p>
+                <div class="card">
+                    <h3>⚡ Functional First</h3>
 
-<pre><code>print("Hello");
+                    <p>
+                        Prefer pure functions and composition whenever practical.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>📝 Semicolons</h3>
+
+                    <p>
+                        Statements should end with semicolons.
+                    </p>
+
+<pre><code class="language-lua">print("Hello");
 workspace.Gravity = 196.2;</code></pre>
-            </div>
 
-            <div class="card">
-                <h3>Functional Programming First</h3>
+                </div>
 
-                <p>
-                    Prefer pure functions and composition whenever practical.
-                    Avoid unnecessary mutable state.
-                </p>
             </div>
         </section>
 
         <section>
             <h2>Naming Conventions</h2>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Element</th>
-                        <th>Convention</th>
-                        <th>Example</th>
-                    </tr>
-                </thead>
+            <div class="naming-grid">
 
-                <tbody>
-                    <tr>
-                        <td>Services</td>
-                        <td>PascalCase</td>
-                        <td>InventoryService</td>
-                    </tr>
+                <div class="naming-card">
+                    <strong>Services</strong>
+                    <span>PascalCase</span>
+                    <code>InventoryService</code>
+                </div>
 
-                    <tr>
-                        <td>Variables</td>
-                        <td>camelCase</td>
-                        <td>playerData</td>
-                    </tr>
+                <div class="naming-card">
+                    <strong>Variables</strong>
+                    <span>camelCase</span>
+                    <code>playerData</code>
+                </div>
 
-                    <tr>
-                        <td>Private Functions</td>
-                        <td>camelCase</td>
-                        <td>calculateDamage()</td>
-                    </tr>
+                <div class="naming-card">
+                    <strong>Private Functions</strong>
+                    <span>camelCase</span>
+                    <code>calculateReward()</code>
+                </div>
 
-                    <tr>
-                        <td>Public Functions</td>
-                        <td>PascalCase</td>
-                        <td>DealDamage()</td>
-                    </tr>
+                <div class="naming-card">
+                    <strong>Public Functions</strong>
+                    <span>PascalCase</span>
+                    <code>GetCoins()</code>
+                </div>
 
-                    <tr>
-                        <td>Classes (OOP)</td>
-                        <td>PascalCase</td>
-                        <td>PlayerProfile</td>
-                    </tr>
+                <div class="naming-card">
+                    <strong>Classes</strong>
+                    <span>PascalCase</span>
+                    <code>PlayerProfile</code>
+                </div>
 
-                    <tr>
-                        <td>Data Tables</td>
-                        <td>snake_case</td>
-                        <td>player_inventory</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="naming-card">
+                    <strong>Data Tables</strong>
+                    <span>snake_case</span>
+                    <code>player_inventory</code>
+                </div>
+
+            </div>
         </section>
 
         <section>
-            <h2>Variable Declaration</h2>
+            <h2>const over local</h2>
 
             <div class="card">
-                <h3>Use <code>const</code></h3>
 
                 <p>
-                    H Luau Style prefers the newer
-                    <code>const</code> keyword for values that should not be
-                    reassigned.
+                    H Luau Style prefers <code>const</code> for values
+                    intended not to be reassigned.
                 </p>
 
-<pre><code>const Players = game:GetService("Players");
+<pre><code class="language-lua">const Players = game:GetService("Players");
 const ReplicatedStorage = game:GetService("ReplicatedStorage");</code></pre>
 
-                <p class="note">
-                    Note: Some Luau environments and tooling may still commonly
-                    use <code>local</code>. Teams adopting this guide should
-                    ensure their tooling supports the chosen conventions.
-                </p>
             </div>
         </section>
 
         <section>
             <h2>Example Service</h2>
 
-<pre><code>--!strict
+<pre><code class="language-lua">--!strict
 
 const CoinService = {};
 CoinService.__index = CoinService;
@@ -147,7 +168,9 @@ type PlayerData = {
 
 const player_data: {[Player]: PlayerData} = {};
 
-function calculateReward(player: Player): number
+function calculateReward(
+    player: Player
+): number
     return 10;
 end;
 
@@ -177,34 +200,34 @@ function CoinService.GetCoins(
 end;
 
 return CoinService;</code></pre>
+
         </section>
 
         <section>
             <h2>Philosophy</h2>
 
-            <blockquote>
-                "Consistency beats preference. A shared style allows teams to
-                move faster, review code easier, and reduce unnecessary debates."
-            </blockquote>
+            <div class="card philosophy">
 
-            <p>
-                H Luau Style prioritizes:
-            </p>
+                <blockquote>
+                    "Consistency beats preference."
+                </blockquote>
 
-            <ul>
-                <li>Predictable naming.</li>
-                <li>Strict typing.</li>
-                <li>Functional thinking.</li>
-                <li>Readable APIs.</li>
-                <li>Maintainable Roblox projects.</li>
-            </ul>
+                <p>
+                    H Luau Style values predictable code,
+                    strict typing, and reducing unnecessary
+                    style debates within teams.
+                </p>
+
+            </div>
         </section>
+
     </main>
 
     <footer>
-        <p>
-            H Luau Style Guide • Community Convention
-        </p>
+        H Luau Style Guide • Built with GitHub Pages
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-lua.min.js"></script>
 </body>
 </html>
